@@ -1,9 +1,19 @@
+type Props = {
+  data: any
+}
 import { graphql, useStaticQuery } from "gatsby"
 
-type Props = {}
-
-const getData = graphql`
-  query FirstQuery {
+const Testing = ({
+  data: {
+    site: {
+      info: { author },
+    },
+  },
+}: Props) => {
+  return <div>Testing</div>
+}
+export const data = graphql`
+  query {
     site {
       info: siteMetadata {
         author
@@ -22,12 +32,5 @@ const getData = graphql`
     }
   }
 `
-const FetchData = (props: Props) => {
-  const {
-    site: {
-      info: { title },
-    },
-  } = useStaticQuery(getData)
-  return <div>site title is: {title}</div>
-}
-export default FetchData
+
+export default Testing

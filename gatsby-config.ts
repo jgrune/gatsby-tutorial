@@ -20,7 +20,7 @@ module.exports = {
       { name: 'Bob', age: '35' },
     ]
   },
-  plugins: [`gatsby-plugin-provide-react`, `gatsby-plugin-css-modules-typings`,
+  plugins: [`gatsby-plugin-provide-react`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images 
@@ -29,5 +29,20 @@ module.exports = {
       options: {
         // Add any options here
       }
-    }],
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `styles`,
+        path: `${__dirname}/src/assets/css`,
+      }
+    }
+  ],
 };
